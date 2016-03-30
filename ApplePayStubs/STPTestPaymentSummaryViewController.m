@@ -115,6 +115,10 @@ NSString *const STPTestPaymentSectionTitlePayment = @"Payment";
         [token performSelector:@selector(setTransactionIdentifier:) withObject:identifier];
     }
     
+    if ([token respondsToSelector:@selector(setPaymentData:)]) {
+        [token performSelector:@selector(setPaymentData:) withObject:[NSData new]];
+    }
+    
     if ([payment respondsToSelector:@selector(setToken:)]) {
         [payment performSelector:@selector(setToken:) withObject:token];
     }
